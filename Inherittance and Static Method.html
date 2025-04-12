@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>JavaScript Class Inheritance & Static Method</h2>
+
+    <p id="details"></p>
+    <p id="greetings"></p>
+
+    <script>
+      class vehicle {
+        constructor(brandname) {
+          this.brandname = brandname;
+        }
+
+        static hello() {
+          return "Hello";
+        }
+
+        details() {
+          return `Brand Name: ${this.brandname}<br>`;
+        }
+      }
+
+      class model extends vehicle {
+        constructor(brandname, model) {
+          super(brandname);
+          this.model = model;
+        }
+
+        show() {
+          return this.details() + "Model : " + this.model;
+        }
+      }
+
+      var car1 = new model("Toyota", "Premio");
+
+      document.getElementById("details").innerHTML = car1.show();
+      document.getElementById("greetings").innerHTML = vehicle.hello();
+    </script>
+  </body>
+</html>
