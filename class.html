@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <section class="section top-section">
+      <div class="content-container content-theme-dark">
+        <div class="content-inner">
+          <div class="content-center">
+            <h1>JavaScript Class Inheritance & Static Method</h1>
+            <p id="one">
+              Car Brands and Models
+              <a href="http://finestpixels.com/" target="_blank"
+                >by Kashfia Bintae</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bottom-section">
+      <div class="content-container content-theme-light">
+        <div class="content-inner">
+          <div class="content-center">
+            <h1>JavaScript Class Inheritance & Static Methods</h1>
+            <p id="one">
+              Car Brands and Models
+              <a href="http://finestpixels.com/" target="_blank"
+                >by Kashfia Bintae</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <p id="details"></p>
+
+    <script>
+      class vehicle {
+        constructor(brandname) {
+          this.brandname = brandname;
+        }
+
+        static hello() {
+          return "Hello";
+        }
+
+        details() {
+          return `Brand Name: ${this.brandname}<br>`;
+        }
+      }
+
+      class model extends vehicle {
+        constructor(brandname, model, price, engine) {
+          super(brandname);
+          this.model = model;
+          this.price = price;
+          this.engine = engine;
+        }
+
+        show() {
+          return `${this.details()}Model : ${this.model}<br>Price: $${
+            this.price
+          }<br>Engine: ${this.engine}`;
+        }
+      }
+
+      var car1 = new model("Toyota", "Camry", 25000, "2.5L 4-cylinder");
+      var car2 = new model("Ford", "Mustang", 30000, "2.3L EcoBoost");
+      var car3 = new model("Audi", "A4", 40000, "2.0L Turbocharged 4-cylinder");
+      var car4 = new model("Hyundai", "Elantra", 20000, "2.0L 4-cylinder");
+      var car5 = new model("Chevrolet", "Silverado", 35000, "5.3L V8");
+
+      let allCarDetails = "";
+      allCarDetails += car1.show() + "<hr>";
+      allCarDetails += car2.show() + "<hr>";
+      allCarDetails += car3.show() + "<hr>";
+      allCarDetails += car4.show() + "<hr>";
+      allCarDetails += car5.show() + "<hr>";
+
+      document.getElementById("details").innerHTML = allCarDetails;
+    </script>
+  </body>
+</html>

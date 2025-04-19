@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:700,900");
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+body {
+  font-size: 20px;
+  font-family: "Raleway", sans-serif;
+  margin: 20px;
+  background-image: url(https://images.hdqwalls.com/wallpapers/bugatti-bolide-4k-i8.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+a {
+  text-decoration: none;
+}
+h1 {
+  font-size: 50px;
+}
+#one {
+  font-size: 15px;
+  text-shadow: 1px 1px 1px white;
+  margin-top: 10px;
+}
+p {
+  font-size: 22px;
+  color: mediumspringgreen;
+  text-shadow: 4px 4px 20px lawngreen;
+  margin-left: 100px;
+  padding: 30px;
+  margin-top: 20px;
+}
+.section {
+  height: 600px;
+  position: relative;
+}
+
+.content-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  clip: rect(auto, auto, auto, auto);
+  pointer-events: none;
+}
+.content-inner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 400px;
+  padding: 0;
+  z-index: 99;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: transform;
+  -webkit-perspective: 1000;
+  perspective: 1000;
+  pointer-events: all;
+}
+.content-center {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.top-section {
+  background: linear-gradient(
+    135deg,
+    rgba(216, 112, 147, 0) 0%,
+    rgba(255, 20, 145, 0.386) 100%
+  );
+}
+.bottom-section {
+  background: rgba(25, 25, 112, 0.366);
+}
+.section h1 {
+  font-size: 100px;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+}
+.section p,
+.section a {
+  font-weight: 700;
+  letter-spacing: 7px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.content-theme-dark h1 {
+  color: deeppink;
+  text-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+.content-theme-dark p,
+.content-theme-dark a {
+  color: plum;
+}
+.content-theme-light h1 {
+  color: rgb(85, 71, 235);
+  text-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+.content-theme-light p,
+.content-theme-light a {
+  color: darkgray;
+}

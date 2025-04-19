@@ -3,34 +3,81 @@
   <head>
     <title>Document</title>
   </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css?family=Saira+Semi+Condensed")
+        $font: "Saira Semi Condensed",
+      sans-serif $font-color: #ffffff $background: #39393b $transition: 0.6s
+        $font-size: 5vw @mixin center position: absolute top: 50% left: 50%
+        transform: translate(-50%, -50%) body background: $background
+        font-family: $font .main-container + center color: $font-color
+        .first-container,
+      .second-container cursor: pointer position: relative h1 position: relative
+        letter-spacing: 2px font-size: $font-size .first-container margin-bottom:
+        15px span display: inline-block position: relative margin-right: 5px &:
+        after content: "" position: absolute height: 100% width: 0 top: 0 left:
+        0 transition: $transition z-index: -5 @for $i from 1 through 10 .share: hover
+        > h1 > span: nth-child(#{$i}): after $delay: 100 * $i $random: ($i * 5) -
+        30 background: white width: 100% transition: $transition transition-delay:
+        $delay + ms transform: rotate($random + deg) .share: hover > h1 > span: nth-child(
+          #{$i}
+        ) $delayTwo: 110 * $i color: $background transition-delay: $delayTwo + ms;
+  </style>
   <body>
-    <h2>JavaScript Classes</h2>
+    .main-container .first-container.share h1 <span id="one">W</span
+    ><span>h</span><span>e</span><span>n</span> <span>W</span><span>e</span>
+    <span>T</span><span>a</span><span>l</span
+    ><span>k</span> .second-container.share h1 <span>W</span><span>e</span>
+    <span>M</span><span>o</span><span>v</span><span>e</span>
+    <h2>JavaScript Class Inheritance & Static Method</h2>
 
-    <p id="student1"></p>
-    <p id="student2"></p>
+    <p id="details"></p>
+    <p id="greetings"></p>
 
     <script>
-      class student {
-        constructor(name, birthYear) {
-          this.name = name;
-          this.birthYear = birthYear;
+      class vehicle {
+        constructor(brandname) {
+          this.brandname = brandname;
         }
 
-        age() {
-          let date = new Date();
-          return date.getFullYear() - this.birthYear;
+        static hello() {
+          return "Hello";
+        }
+
+        details() {
+          return `Brand Name: ${this.brandname}<br>`;
         }
       }
 
-      var jun = new student("Junaira", 2012);
-      var ksf = new student("Kashfia", 2009);
+      class model extends vehicle {
+        constructor(brandname, model, price, engine) {
+          super(brandname);
+          this.model = model;
+          this.price = price;
+          this.engine = engine;
+        }
 
-      document.getElementById("student1").innerHTML = `Iam ${
-        jun.name
-      } and I was born in ${jun.birthYear} & my age is ${jun.age()}`;
-      document.getElementById("student2").innerHTML = `Iam ${
-        ksf.name
-      } and I was born in ${ksf.birthYear} & my age is ${ksf.age()}`;
+        show() {
+          return `${this.details()}Model : ${this.model}<br>Price: $${
+            this.price
+          }<br>Engine: ${this.engine}`;
+        }
+      }
+
+      var car1 = new model("Toyota", "Camry", 25000, "2.5L 4-cylinder");
+      var car2 = new model("Ford", "Mustang", 30000, "2.3L EcoBoost");
+      var car3 = new model("Audi", "A4", 40000, "2.0L Turbocharged 4-cylinder");
+      var car4 = new model("Hyundai", "Elantra", 20000, "2.0L 4-cylinder");
+      var car5 = new model("Chevrolet", "Silverado", 35000, "5.3L V8");
+
+      let allCarDetails = "";
+      allCarDetails += car1.show() + "<hr>";
+      allCarDetails += car2.show() + "<hr>";
+      allCarDetails += car3.show() + "<hr>";
+      allCarDetails += car4.show() + "<hr>";
+      allCarDetails += car5.show() + "<hr>";
+
+      document.getElementById("details").innerHTML = allCarDetails;
+      document.getElementById("greetings").innerHTML = vehicle.hello();
     </script>
   </body>
 </html>
